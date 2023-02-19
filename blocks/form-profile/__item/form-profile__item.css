@@ -11,14 +11,6 @@ font-family: 'Inter', 'Arial', sans-serif;
 }
 
 
-
-
-
 .form-profile__item:focus{
   outline: 0;
-}
-
-@media screen and (max-width: 767px) {
-  .form-profile__item{
-  }
 }
