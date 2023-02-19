@@ -15,7 +15,7 @@
 <!-- Form -->
 <div class="popup popup_opened">
   <div class="popup__container">
-    <form class="form-profile">
+    <form class="form-profile" name="profile">
         <h2 class="form-profile__title">Редактировать профиль</h2>
         <fieldset class="form-profile__user-info">
           <input type="text" class="form-profile__item" name="name" id="name" placeholder="Ваше имя">
@@ -23,7 +23,7 @@
         </fieldset>
         <button class="form-profile__submit-button" type="submit">Сохранить</button>
     </form>
-    <button class="form-profile__close-button"></button>
+    <button class="form-profile__close-button" type="reset"></button>
   </div>
 </div>
 <!-- Form -->
@@ -39,14 +39,14 @@
 <!-- Profile -->
       <section class="profile">
         <div class="profile__main-info">
-          <button class="profile__avatar-button"></button>
+          <img class="profile__avatar-image" src="./images/profile/profile.jpg" alt="Фото профиля">
           <div class="profile__user">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button"></button>
+            <button class="profile__edit-button" aria-label="Редактирование" type="menu"></button>
             <p class="profile__subtitle">Исследователь океана</p>
           </div>
         </div>
-        <button class="profile__add-button"></button>
+        <button class="profile__add-button" type="menu"></button>
       </section>
 <!-- Profile -->
 
@@ -57,42 +57,42 @@
             <img class="element__image" src="./images/element/element__image1.jpg" alt="Карачаевск">
             <div class="element__text">
               <h2 class="element__name">Карачаевск</h2>
-              <button class="element__button element__button_active"></button>
+              <button class="element__button element__button_active" type="button"></button>
             </div>
           </li>
           <li class="element">
             <img class="element__image" src="./images/element/element__image2.jpg" alt="Гора Эльбрус">
             <div class="element__text">
               <h2 class="element__name">Гора Эльбрус</h2>
-              <button class="element__button"></button>
+              <button class="element__button" type="button"></button>
             </div>
           </li>
           <li class="element">
             <img class="element__image" src="./images/element/element__image3.jpg" alt="Домбай">
             <div class="element__text">
               <h2 class="element__name">Домбай</h2>
-              <button class="element__button element__button_active"></button>
+              <button class="element__button element__button_active" type="button"></button>
             </div>
           </li>
           <li class="element">
             <img class="element__image" src="./images/element/element__image4.jpg" alt="Гора Эльбрус">
             <div class="element__text">
               <h2 class="element__name">Гора Эльбрус</h2>
-              <button class="element__button"></button>
+              <button class="element__button" type="button"></button>
             </div>
           </li>
           <li class="element">
             <img class="element__image" src="./images/element/element__image5.jpg" alt="Домбай">
             <div class="element__text">
               <h2 class="element__name">Домбай</h2>
-              <button class="element__button element__button_active"></button>
+              <button class="element__button element__button_active" type="button"></button>
             </div>
           </li>
           <li class="element">
             <img class="element__image" src="./images/element/element__image6.jpg" alt="Карачаевск">
             <div class="element__text">
               <h2 class="element__name">Карачаевск</h2>
-              <button class="element__button"></button>
+              <button class="element__button" type="button"></button>
             </div>
           </li>
         </ul>

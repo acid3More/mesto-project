@@ -8,7 +8,7 @@
 /* Profile */
 @import url("../blocks/profile/profile.css");
 @import url("../blocks/profile/__add-button/profile__add-button.css");
-@import url("../blocks/profile/__avatar-button/profile__avatar-button.css");
+@import url("../blocks/profile/__avatar-image/profile__avatar-image.css");
 @import url("../blocks/profile/__edit-button/profile__edit-button.css");
 @import url("../blocks/profile/__main-info/profile__main-info.css");
 @import url("../blocks/profile/__subtitle/profile__subtitle.css");
@@ -39,10 +39,14 @@
 @import url("../blocks/popup/popup.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
 @import url("../blocks/popup/__container/popup__container.css");
-@import url("../blocks/form-profile/form__profile.css");
+@import url("../blocks/form-profile/form-profile.css");
 @import url("../blocks/form-profile/__close-button/form-profile__close-icon.css");
 @import url("../blocks/form-profile/__item/form-profile__item.css");
 @import url("../blocks/form-profile/__submit-button/form-profile__submit-button.css");
 @import url("../blocks/form-profile/__title/form-profile__title.css");
 @import url("../blocks/form-profile/__user-info/form-profile__user-info.css");
 /* form */
+
+body{
+  background-color: black;
+}

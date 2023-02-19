@@ -12,6 +12,8 @@
   cursor: pointer;
   margin-top: 48px;
   margin-bottom: 37px;
+  border-radius: 2px;
+  border: 0;
 }
 
 .form-profile__submit-button:hover{
