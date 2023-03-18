@@ -1,8 +1,9 @@
-.element{
+.form-card{
   position: relative;
   display: flex;
-  max-width: 282px;
   flex-direction: column;
   background-color: white;
-  border-radius: 10px 10px 10px 10px;
+  margin: 0 auto;
+  max-width: 358px;
+  width: 83.26%;
 }

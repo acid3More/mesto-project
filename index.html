@@ -12,10 +12,10 @@
 </head>
 
 <body class="page">
-<!-- Form -->
-<div class="popup">
+<!-- Form profile-->
+<div class="popup" id="popup-profile">
   <div class="popup__container">
-    <form class="form-profile" name="profile">
+    <form class="form-profile" name="profile" id="form-profile">
         <h2 class="form-profile__title">Редактировать профиль</h2>
         <fieldset class="form-profile__user-info">
           <input type="text" class="form-profile__item" name="name" id="name" placeholder="Ваше имя">
@@ -26,7 +26,33 @@
     <button class="form-profile__close-button" type="button"></button>
   </div>
 </div>
-<!-- Form -->
+<!-- Form profile -->
+
+<!-- card profile -->
+<div class="popup" id="popup-card">
+  <div class="popup__container">
+    <form class="form-card" name="card" id="#form-card">
+        <h2 class="form-card__title">Новое место</h2>
+        <fieldset class="form-card__card-info">
+          <input type="text" class="form-card__item" name="name" id="card-name" placeholder="Название" minlength='2'>
+          <input type="text" class="form-card__item" name="link" id="card-link" placeholder="Ссылка на картинку">
+        </fieldset>
+        <button class="form-card__submit-button" type="submit">Сохранить</button>
+    </form>
+    <button class="form-card__close-button" type="button"></button>
+  </div>
+</div>
+<!-- card profile -->
+
+<!-- image popup -->
+<div class="popup" id="image-popup">
+  <div class="popup__image-container">
+    <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="" class="popup__image">
+    <p class="popup__title">Байкал</p>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+<!-- image popup -->
 
 <!-- Header -->
     <header class="header">
@@ -50,52 +76,11 @@
 <!-- Profile -->
 
 <!-- Elements -->
-      <section class="elements">
+      <section class="elements" aria-label="Секция с карточками мест.">
         <ul class="elements__list">
-          <li class="element">
-            <img class="element__image" src="./images/element/element__image1.jpg" alt="Карачаевск">
-            <div class="element__text">
-              <h2 class="element__name">Карачаевск</h2>
-              <button class="element__button element__button_active" type="button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element/element__image2.jpg" alt="Гора Эльбрус">
-            <div class="element__text">
-              <h2 class="element__name">Гора Эльбрус</h2>
-              <button class="element__button" type="button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element/element__image3.jpg" alt="Домбай">
-            <div class="element__text">
-              <h2 class="element__name">Домбай</h2>
-              <button class="element__button element__button_active" type="button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element/element__image4.jpg" alt="Гора Эльбрус">
-            <div class="element__text">
-              <h2 class="element__name">Гора Эльбрус</h2>
-              <button class="element__button" type="button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element/element__image5.jpg" alt="Домбай">
-            <div class="element__text">
-              <h2 class="element__name">Домбай</h2>
-              <button class="element__button element__button_active" type="button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/element/element__image6.jpg" alt="Карачаевск">
-            <div class="element__text">
-              <h2 class="element__name">Карачаевск</h2>
-              <button class="element__button" type="button"></button>
-            </div>
-          </li>
+
         </ul>
-        </section>
+      </section>
 <!-- Elements -->
     </main>
 
@@ -104,7 +89,22 @@
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
 <!-- Footer -->
-<script src="js/form.js"></script>
+
+
+<template id="template-card">
+  <li class="element">
+    <img class="element__image" src="" alt="">
+    <button class="element__remove-btn" type="button" id="remove-btn"></button>
+    <div class="element__text">
+      <h2 class="element__name"></h2>
+      <button class="element__button" type="button"></button>
+    </div>
+  </li>
+</template>
+
+
+
+<script src="./index.js" type="module"></script>
 </body>
 </html>
 

@@ -1,4 +1,12 @@
 .element__image{
-  max-width: 282px;
+  width: 282px;
+  height: 282px;
   border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.element__image:hover{
+  opacity: 0.85;
 }
