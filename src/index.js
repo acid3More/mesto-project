@@ -15,9 +15,9 @@ const cardAddButton = document.querySelector('.profile__add-button');
 // add card
 
 // popap image
-const fullScreenText = document.querySelector('.popup__title');
-const fullScreenImage = document.querySelector('.popup__image');
-const fullScreenCloseButton = document.querySelector('.popup__close-button');
+const placeText = document.querySelector('.popup__title');
+const placeImage = document.querySelector('.popup__image');
+const placeCloseButton = document.querySelector('.popup__close-button');
 // popap image
 
 // popapi
@@ -127,9 +127,9 @@ function createCardItem(name, link){
   cardName.textContent = name;
   cardLink.alt = name;
   cardLink.addEventListener('click', () => {
-    fullScreenImage.src = cardLink.src;
-    fullScreenImage.alt = cardLink.alt;
-    fullScreenText.textContent = cardLink.alt;
+    placeImage.src = cardLink.src;
+    placeImage.alt = cardLink.alt;
+    placeText.textContent = cardLink.alt;
     openPopup(imagePopup);
 });
   const cardLikeButton = cardItem.querySelector('.element__button').addEventListener('click', clickLike);
@@ -145,5 +145,5 @@ cardAddButton.addEventListener('click', openCardPopup);
 profileFormElement.addEventListener('submit', submitProfileInfo);
 cardForm.addEventListener('submit', addCardFormHandler);
 profileCloseButton.addEventListener('click', closePopup);
-fullScreenCloseButton.addEventListener('click', closePopup);
+placeCloseButton.addEventListener('click', closePopup);
 cardCloseButton.addEventListener('click', closePopup);
