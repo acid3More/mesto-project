@@ -14,13 +14,11 @@ const cardCloseButton = document.querySelector('.form-card__close-button');
 const cardAddButton = document.querySelector('.profile__add-button');
 // add card
 
-
 // popap image
 const popupImageTitle = document.querySelector('.popup__title');
 const popupImagePicture = document.querySelector('.popup__image')
 const popupImageCloseButton = document.querySelector('.popup__close-button');
 // popap image
-
 
 // popapi
 const popupProfile = document.querySelector('#popup-profile');
@@ -42,8 +40,6 @@ function closeProfile() {
   popupProfile.classList.remove('popup_opened');
 }
 
-
-
 // Сохранение имени профиля
 function editProfileInfo(evt) {
     evt.preventDefault();
@@ -52,7 +48,6 @@ function editProfileInfo(evt) {
     closeProfile()
 }
 formElement.addEventListener('submit', editProfileInfo);
-
 
 // Массив карт
 const initialCards = [
@@ -83,7 +78,6 @@ const initialCards = [
 ];
 // Массив карт
 
-
 function addCardFormHandler(event){
   event.preventDefault();
   const item = { name: cardNameInput.value, link: cardLinkInput.value};
@@ -95,7 +89,6 @@ function addCardPrepend({ name, link }){
   const card = createCardItem(name, link);
   cardList.prepend(card);
 };
-
 
 // open/close card popaps
 function openPicturePopup(){
@@ -116,7 +109,6 @@ function closePicturePopup(){
   imagePopup.classList.remove('popup_opened');
 }
 //  open/close card popaps
-
 
 function removeCard(event){
   const cardDelete = event.target.closest('.element');
@@ -147,9 +139,6 @@ function createCardItem(name, link){
 
 initialCards.forEach(addCardPrepend);
 // Добавление карточки
-
-
-
 
 profileOpenButton.addEventListener('click', openProfile);
 profileCloseButton.addEventListener('click', closeProfile);
