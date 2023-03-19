@@ -34,8 +34,8 @@ function openPopup(popup){
   popup.classList.add('popup_opened');
 }
 
-function closePopup(){
-  document.querySelector('.popup_opened').classList.remove('popup_opened');
+function closePopup(popup){
+  popup.classList.remove('popup_opened');
 }
 
 // Функции открытия/закрытия попапа профиля
@@ -50,7 +50,7 @@ function submitProfileInfo(event) {
     event.preventDefault();
     profileJob.textContent = jobInput.value
     profileName.textContent = nameInput.value
-    closePopup()
+    closePopup(profilePopup);
 }
 
 // Массив карт
@@ -86,7 +86,7 @@ function addCardFormHandler(event){
   event.preventDefault();
   const item = { name: cardNameInput.value, link: cardLinkInput.value};
   addCardPrepend(item);
-  closePopup();
+  closePopup(cardAddPopup);
 };
 
 function addCardPrepend({ name, link }){
@@ -144,6 +144,12 @@ profileOpenButton.addEventListener('click', openProfileEditPopup);
 cardAddButton.addEventListener('click', openCardPopup);
 profileFormElement.addEventListener('submit', submitProfileInfo);
 cardForm.addEventListener('submit', addCardFormHandler);
-profileCloseButton.addEventListener('click', closePopup);
-placeCloseButton.addEventListener('click', closePopup);
-cardCloseButton.addEventListener('click', closePopup);
+profileCloseButton.addEventListener('click', () => {
+  closePopup(profilePopup);
+});
+placeCloseButton.addEventListener('click', () => {
+  closePopup(imagePopup);
+});
+cardCloseButton.addEventListener('click', () => {
+  closePopup(cardAddPopup);
+});
