@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Платформа позволяет каждому желающему добавить фото красивого места">
+  <meta name="keywords" content="Путешествие, пейзаж, поездка">
+  <meta name="author" content="Владимир Карабин">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+
+<body class="page">
+<!-- Form profile-->
+<div class="popup" id="popup-profile">
+  <div class="popup__container">
+    <form class="popup__form" name="formElement" id="form-profile" novalidate>
+        <h2 class="popup__form-title">Редактировать профиль</h2>
+        <fieldset class="popup__fieldset">
+          <label class="popup__field">
+            <input type="text" class="popup__input" name="name" id="name-input" placeholder="Ваше имя" minlength="2" maxlength="40" required>
+            <span class="popup__input-error name-input-error"></span>
+          </label>
+          <label class="popup__field">
+            <input type="text" class="popup__input" name="job" id="job-input" placeholder="Ваша деятельность" minlength="2" maxlength="200" required>
+            <span class="popup__input-error job-input-error"></span>
+          </label>
+        </fieldset>
+        <button class="popup__submit-button" type="submit" id="profile-submit">Сохранить</button>
+    </form>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+<!-- Form profile -->
+
+<!-- card profile -->
+<div class="popup" id="popup-card">
+  <div class="popup__container">
+    <form class="popup__form" name="formElement" id="form-card" novalidate>
+        <h2 class="popup__form-title">Новое место</h2>
+        <fieldset class="popup__fieldset">
+          <label class="popup__field">
+            <input type="text" class="popup__input" name="name" id="card-name-input" placeholder="Название" minlength='2' maxlength="30" required>
+            <span class="popup__input-error card-name-input-error"></span>
+          </label>
+          <label class="popup__field">
+            <input type="url" class="popup__input" name="link" id="card-link-input" placeholder="Ссылка на картинку" minlength='2' required>
+            <span class="popup__input-error card-link-input-error"></span>
+          </label>
+        </fieldset>
+        <button class="popup__submit-button" type="submit" id="card-submit">Создать</button>
+    </form>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+<!-- card profile -->
+
+<!-- avatar popup -->
+<!-- <div class="popup" id="popup-avatar">
+  <div class="popup__container">
+    <form class="popup__form" name="formElement" id="form-avatar" novalidate>
+        <h2 class="popup__form-title">Обновить аватар</h2>
+        <fieldset class="popup__fieldset">
+          <input type="url" class="popup__input" name="link" id="avatar-link-input" placeholder="Ссылка на картинку">
+          <span class="popup__input-error avatar-link-input-error"></span>
+        </fieldset>
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+    </form>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div> -->
+<!-- avatar popup -->
+
+<!-- image popup -->
+<div class="popup" id="image-popup">
+  <div class="popup__image-container">
+    <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="" class="popup__image">
+    <p class="popup__title">Байкал</p>
+    <button class="popup__close-button" type="button"></button>
+  </div>
+</div>
+<!-- image popup -->
+
+<!-- Header -->
+    <header class="header">
+      <img class="header__logo" src="./images/header/logo.svg" alt="Логотип Место">
+    </header>
+<!-- Header -->
+
+    <main class="content">
+<!-- Profile -->
+      <section class="profile">
+        <div class="profile__main-info">
+          <img class="profile__avatar-image" src="./images/profile/profile.jpg" alt="Фото профиля">
+          <div class="profile__user">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button" aria-label="Редактирование" type="button"></button>
+            <p class="profile__subtitle">Исследователь океана</p>
+          </div>
+        </div>
+        <button class="profile__add-button" type="button"></button>
+      </section>
+<!-- Profile -->
+
+<!-- Elements -->
+      <section class="elements" aria-label="Секция с карточками мест.">
+        <ul class="elements__list">
+
+        </ul>
+      </section>
+<!-- Elements -->
+    </main>
+
+<!-- Footer -->
+    <footer class="footer">
+      <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+<!-- Footer -->
+
+<template id="template-card">
+  <li class="element">
+    <img class="element__image" src="" alt="">
+    <button class="element__remove-btn" type="button" id="remove-btn"></button>
+    <div class="element__text">
+      <h2 class="element__name"></h2>
+      <button class="element__button" type="button"></button>
+    </div>
+  </li>
+</template>
+
+<script src="index.js" type="module"></script>
+</body>
+</html>
+
