@@ -1,7 +1,7 @@
 import {
   openPopup,
   closePopup
-} from "./popup.js";
+} from "./modal.js";
 
 import {
   cardTemplate,
@@ -14,11 +14,11 @@ import {
   cardAddSubmitButton,
   config,
   cardAddPopup
-} from "./var.js";
+} from "./utils.js";
 
 import {
   cleanPopupSpanErrors
-} from "./validation.js";
+} from "./validate.js";
 
 export function addCardFormHandler(event){
   event.preventDefault();

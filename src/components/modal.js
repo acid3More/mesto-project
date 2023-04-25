@@ -1,3 +1,5 @@
+
+
 export function openPopup(popup){
   popup.classList.add('popup_opened');
 }
@@ -14,8 +16,10 @@ export function clickClosePopup(event){
   }
 }
 
-export const closePopupEscape = window.onkeydown = function( event ) {
-  if ( event.key === "Escape") {
+export function closePopupEscape(){
+  window.onkeydown = function( event ) {
+  if ( event.key === "Escape" && document.querySelector('.popup_opened').classList.contains('popup_opened')) {
     document.querySelector('.popup_opened').classList.remove('popup_opened');
   }
+};
 };
