@@ -57,13 +57,11 @@ function submitProfileInfo(event) {
     closePopup()
 }
 
-
 // вызов функций
 setProfileInputValue()
 initialCards.forEach(addCardPrepend);
 enableValidation(config);
 closePopupEscape();
-
 
 // Слушатели
 popups.forEach(popup =>
