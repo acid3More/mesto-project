@@ -24,7 +24,7 @@ export function addCardFormHandler(event){
   event.preventDefault();
   const item = { name: cardNameInput.value, link: cardLinkInput.value};
   addCardPrepend(item);
-  closePopup();
+  closePopup(cardAddPopup);
 };
 
 // Функция добавление карточки в массив

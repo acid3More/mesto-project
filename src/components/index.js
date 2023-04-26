@@ -14,12 +14,15 @@ import{
   popups,
   cardForm,
   popupCloseButton,
-  config
+  config,
+  cardNameInput,
+  cardLinkInput,
 } from './utils.js';
 
 import{
   cleanPopupSpanErrors,
   enableValidation,
+  toggleButtonState
   //
 } from './validate.js';
 
@@ -32,20 +35,23 @@ import{
 import{
   closePopup,
   openPopup,
-  closePopupEscape,
-  clickClosePopup
+  clickClosePopup,
+  closePopupByCross
 } from './modal.js';
 // Вынес присваивание для инпутов, чтобы проходила валидация
 
 // Функции открытия/закрытия попапа профиля
-export function setProfileInputValue(){
-  jobInput.value = profileJob.textContent
-  nameInput.value = profileName.textContent
+export function setInputValue(){
+  jobInput.value = profileJob.textContent;
+  nameInput.value = profileName.textContent;
+  cardNameInput.value = "";
+  cardLinkInput.value = "";
 }
 
 function openProfileEditPopup() {
+  setInputValue()
+  toggleButtonState([nameInput, jobInput], profileEditSubmitButton);
   cleanPopupSpanErrors(profilePopup, [nameInput, jobInput], profileEditSubmitButton, config);
-  setProfileInputValue()
   openPopup(profilePopup);
 }
 
@@ -54,14 +60,13 @@ function submitProfileInfo(event) {
     event.preventDefault();
     profileJob.textContent = jobInput.value
     profileName.textContent = nameInput.value
-    closePopup()
+    closePopup(profilePopup)
 }
 
 // вызов функций
-setProfileInputValue()
+setInputValue()
 initialCards.forEach(addCardPrepend);
 enableValidation(config);
-closePopupEscape();
 
 // Слушатели
 popups.forEach(popup =>
@@ -71,7 +76,7 @@ cardAddButton.addEventListener('click', openCardPopup);
 profileFormElement.addEventListener('submit', submitProfileInfo);
 cardForm.addEventListener('submit', addCardFormHandler);
 popupCloseButton.forEach(button => {
-  button.addEventListener('click', closePopup)
+  button.addEventListener('click', closePopupByCross)
 });
 
 
