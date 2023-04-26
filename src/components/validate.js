@@ -44,7 +44,6 @@ function setEventListeners(form, config) {
   });
 };
 
-
 // Удаление текста ошибки в span
 export function cleanPopupSpanErrors(popup, inputs, button, config) {
   inputs.forEach(input => hideInputError(popup, input, config));
