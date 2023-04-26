@@ -37,7 +37,7 @@ export const config = {
   popupButtonSubmit: ".popup__submit-button",
   popupInactiveButton: ".popup__submit-button_inactive",
   popupError: ".popup__input-error",
-  popupInputError: ".popup__input_type_error"
+  popupInputError: "popup__input_type_error"
 };
 
 // массив карточек для вставки

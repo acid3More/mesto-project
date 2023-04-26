@@ -1,3 +1,7 @@
+import{
+  config,
+} from './utils.js';
+
 // Проверка валидации
 function isValid(form, input, config) {
   if (input.validity.patternMismatch) {
@@ -28,6 +32,19 @@ function hideInputError(form, input, config) {
   errorElement.textContent = "";
 }
 
+// Проверка валидации при заполнении инпута
+function setEventListeners(form, config) {
+  const inputList = Array.from(form.querySelectorAll(config.popupInput));
+  const buttonSubmit = form.querySelector(config.popupButtonSubmit);
+  inputList.forEach(input => {
+    input.addEventListener('input', function () {
+      toggleButtonState(inputList, buttonSubmit);
+      isValid(form, input, config);
+    });
+  });
+};
+
+
 // Удаление текста ошибки в span
 export function cleanPopupSpanErrors(popup, inputs, button, config) {
   inputs.forEach(input => hideInputError(popup, input, config));
@@ -40,17 +57,6 @@ function hasInvalidInput(inputList) {
     return !input.validity.valid;
   });
 }
-
-function setEventListeners(form, config) {
-  const inputList = Array.from(form.querySelectorAll(config.popupInput));
-  const buttonSubmit = form.querySelector(config.popupButtonSubmit);
-  inputList.forEach(input => {
-    input.addEventListener('input', function () {
-      toggleButtonState(inputList, buttonSubmit);
-      isValid(form, input, config);
-    });
-  });
-};
 
 export function toggleButtonState(inputList, buttonElement) {
   if (hasInvalidInput(inputList)) {
