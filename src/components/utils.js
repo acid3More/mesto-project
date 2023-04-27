@@ -5,7 +5,7 @@ export const jobInput = document.querySelector('#job-input');
 export const profileOpenButton = document.querySelector('.profile__edit-button');
 export const profileName = document.querySelector('.profile__title');
 export const profileJob = document.querySelector('.profile__subtitle');
-export const popupCloseButton = document.querySelectorAll('.popup__close-button');
+export const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 // add card
 export const cardForm = document.querySelector('#form-card');
 export const cardNameInput = document.querySelector('#card-name-input');
@@ -35,7 +35,7 @@ export const config = {
   popupForm: ".popup__form",
   popupInput: ".popup__input",
   popupButtonSubmit: ".popup__submit-button",
-  popupInactiveButton: ".popup__submit-button_inactive",
+  popupInactiveButton: "popup__submit-button_inactive",
   popupError: ".popup__input-error",
   popupInputError: "popup__input_type_error"
 };

@@ -13,10 +13,7 @@ import{
   cardAddButton,
   popups,
   cardForm,
-  popupCloseButton,
   config,
-  cardNameInput,
-  cardLinkInput,
 } from './utils.js';
 
 import{
@@ -27,7 +24,7 @@ import{
 } from './validate.js';
 
 import{
-  addCardFormHandler,
+  handleCardFormSubmit,
   openCardPopup,
   addCardPrepend,
 } from './card.js';
@@ -35,22 +32,15 @@ import{
 import{
   closePopup,
   openPopup,
-  clickClosePopup,
-  closePopupByCross
 } from './modal.js';
 // Вынес присваивание для инпутов, чтобы проходила валидация
-
 // Функции открытия/закрытия попапа профиля
-export function setInputValue(){
-  jobInput.value = profileJob.textContent;
-  nameInput.value = profileName.textContent;
-  cardNameInput.value = "";
-  cardLinkInput.value = "";
-}
+
 
 function openProfileEditPopup() {
-  setInputValue()
-  toggleButtonState([nameInput, jobInput], profileEditSubmitButton);
+  jobInput.value = profileJob.textContent;
+  nameInput.value = profileName.textContent;
+  toggleButtonState([nameInput, jobInput], profileEditSubmitButton, config);
   cleanPopupSpanErrors(profilePopup, [nameInput, jobInput], profileEditSubmitButton, config);
   openPopup(profilePopup);
 }
@@ -64,19 +54,23 @@ function submitProfileInfo(event) {
 }
 
 // вызов функций
-setInputValue()
 initialCards.forEach(addCardPrepend);
 enableValidation(config);
 
 // Слушатели
 popups.forEach(popup =>
-  popup.addEventListener("mousedown", clickClosePopup));
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup)
+  }
+  if (evt.target.classList.contains('popup__close-button')) {
+    closePopup(popup)
+  }
+  }));
+
 profileOpenButton.addEventListener('click', openProfileEditPopup);
 cardAddButton.addEventListener('click', openCardPopup);
 profileFormElement.addEventListener('submit', submitProfileInfo);
-cardForm.addEventListener('submit', addCardFormHandler);
-popupCloseButton.forEach(button => {
-  button.addEventListener('click', closePopupByCross)
-});
+cardForm.addEventListener('submit', handleCardFormSubmit);
 
 

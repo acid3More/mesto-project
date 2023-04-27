@@ -17,10 +17,10 @@ import {
 } from "./utils.js";
 
 import {
-  cleanPopupSpanErrors
+  cleanPopupSpanErrors,
 } from "./validate.js";
 
-export function addCardFormHandler(event){
+export function handleCardFormSubmit(event){
   event.preventDefault();
   const item = { name: cardNameInput.value, link: cardLinkInput.value};
   addCardPrepend(item);
@@ -35,10 +35,10 @@ export function addCardPrepend({ name, link }){
 
 // Открытие попапа карточки
 export function openCardPopup(){
-  cleanPopupSpanErrors(cardAddPopup, [cardNameInput, cardLinkInput], cardAddSubmitButton, config);
-  openPopup(cardAddPopup);
   cardNameInput.value = '';
   cardLinkInput.value = '';
+  cleanPopupSpanErrors(cardAddPopup, [cardNameInput, cardLinkInput], cardAddSubmitButton, config);
+  openPopup(cardAddPopup);
 }
 
 // Функция удаления карточки
@@ -55,15 +55,15 @@ export function clickLike(event){
 // Функция создания карточки и открытия попапа с картинкой
 export function createCardItem(name, link){
   const cardItem = cardTemplate.cloneNode(true);
-  const cardLink = cardItem.querySelector('.element__image');
+  const cardImage = cardItem.querySelector('.element__image');
   const cardName = cardItem.querySelector('.element__name');
-  cardLink.src = link;
+  cardImage.src = link;
   cardName.textContent = name;
-  cardLink.alt = name;
-  cardLink.addEventListener('click', () => {
-    placeImage.src = cardLink.src;
-    placeImage.alt = cardLink.alt;
-    placeText.textContent = cardLink.alt;
+  cardImage.alt = name;
+  cardImage.addEventListener('click', () => {
+    placeImage.src = cardImage.src;
+    placeImage.alt = cardImage.alt;
+    placeText.textContent = cardImage.alt;
     openPopup(imagePopup);
 });
   const cardLikeButton = cardItem.querySelector('.element__button').addEventListener('click', clickLike);

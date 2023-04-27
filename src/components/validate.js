@@ -32,13 +32,26 @@ function hideInputError(form, input, config) {
   errorElement.textContent = "";
 }
 
+function disableButton(buttonElement, config){
+  buttonElement.disabled = true;
+  buttonElement.classList.add(config.popupInactiveButton);
+}
+
+function enableButton(buttonElement, config){
+  buttonElement.disabled = false;
+  buttonElement.classList.remove(config.popupInactiveButton);
+}
+
 // Проверка валидации при заполнении инпута
 function setEventListeners(form, config) {
   const inputList = Array.from(form.querySelectorAll(config.popupInput));
   const buttonSubmit = form.querySelector(config.popupButtonSubmit);
+  form.addEventListener('reset', () => {
+    disableButton(buttonSubmit, config)
+  })
   inputList.forEach(input => {
     input.addEventListener('input', function () {
-      toggleButtonState(inputList, buttonSubmit);
+      toggleButtonState(inputList, buttonSubmit, config);
       isValid(form, input, config);
     });
   });
@@ -47,7 +60,7 @@ function setEventListeners(form, config) {
 // Удаление текста ошибки в span
 export function cleanPopupSpanErrors(popup, inputs, button, config) {
   inputs.forEach(input => hideInputError(popup, input, config));
-  toggleButtonState(inputs, button);
+  toggleButtonState(inputs, button, config);
 }
 
 // Проверка инпута на валидность
@@ -57,13 +70,11 @@ function hasInvalidInput(inputList) {
   });
 }
 
-export function toggleButtonState(inputList, buttonElement) {
+export function toggleButtonState(inputList, buttonElement, config) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add('popup__submit-button_inactive');
+    disableButton(buttonElement, config)
   } else {
-    buttonElement.disabled = false;
-    buttonElement.classList.remove('popup__submit-button_inactive');
+    enableButton(buttonElement, config)
   }
 }
 

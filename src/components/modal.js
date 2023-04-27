@@ -1,4 +1,4 @@
-import { setInputValue } from "./index.js";
+
 
 export function openPopup(popup){
   popup.classList.add('popup_opened');
@@ -9,10 +9,9 @@ export function openPopup(popup){
 export function closePopup(popup){
   popup.classList.remove('popup_opened');
   document.removeEventListener('keyup', closePopupEscape);
-  setInputValue()
 }
 
-export function closePopupByCross(){
+export function hideOpenedPopup(){
   const openedPopup = document.querySelector('.popup_opened');
   closePopup(openedPopup)
 }
@@ -20,13 +19,13 @@ export function closePopupByCross(){
 // Закрытие попапов по клику
 export function clickClosePopup(event){
   if(event.currentTarget === event.target){
-    event.target.classList.remove("popup_opened")
+    closePopup(event.target)
   }
 }
 
 export function closePopupEscape(event){
   if(event.key === 'Escape'){
     const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup);
+    hideOpenedPopup(openedPopup);
   }
 }
