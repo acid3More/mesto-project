@@ -91,21 +91,27 @@
 </div>
 <!-- card profile -->
 
-<!-- avatar popup -->
-<!-- <div class="popup" id="popup-avatar">
+<!-- avatar edit popup -->
+<div class="popup " id="popup-avatar">
   <div class="popup__container">
     <form class="popup__form" name="formElement" id="form-avatar" novalidate>
         <h2 class="popup__form-title">Обновить аватар</h2>
         <fieldset class="popup__fieldset">
-          <input type="url" class="popup__input" name="link" id="avatar-link-input" placeholder="Ссылка на картинку">
+          <input
+          type="url"
+          class="popup__input"
+          name="link"
+          id="avatar-link-input"
+          placeholder="Ссылка на картинку"
+          required>
           <span class="popup__input-error avatar-link-input-error"></span>
         </fieldset>
-        <button class="popup__submit-button" type="submit">Сохранить</button>
+        <button class="popup__submit-button" type="submit" id="avatar-submit">Сохранить</button>
     </form>
-    <button class="popup__close-button" type="button"></button>
+    <button class="popup__close-button" type="submit"></button>
   </div>
-</div> -->
-<!-- avatar popup -->
+</div>
+<!-- avatar edit popup -->
 
 <!-- image popup -->
 <div class="popup" id="image-popup">
@@ -127,11 +133,14 @@
 <!-- Profile -->
       <section class="profile">
         <div class="profile__main-info">
-          <img class="profile__avatar-image" src="<%=require('./images/profile/profile.jpg')%>" alt="Фото профиля">
+          <div class="profile__avatar">
+            <img class="profile__avatar-image" src="#" alt="Фото профиля">
+            <img class="profile__avatar-btn-image-edit" src="<%=require('./images/profile/profileimage-edit-button.svg')%>" alt="Изменить фото">
+          </div>
           <div class="profile__user">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <h1 class="profile__title"></h1>
             <button class="profile__edit-button" aria-label="Редактирование" type="button"></button>
-            <p class="profile__subtitle">Исследователь океана</p>
+            <p class="profile__subtitle"></p>
           </div>
         </div>
         <button class="profile__add-button" type="button"></button>
@@ -159,7 +168,10 @@
     <button class="element__remove-btn" type="button" id="remove-btn"></button>
     <div class="element__text">
       <h2 class="element__name"></h2>
-      <button class="element__button" type="button"></button>
+      <div class="element__likes-container">
+        <button class="element__button" type="button"></button>
+        <p class="element__likes-count"></p>
+      </div>
     </div>
   </li>
 </template>

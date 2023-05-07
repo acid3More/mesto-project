@@ -1,7 +1,8 @@
 import '../pages/index.css';
 
+import { getUserData, editUserImage, editUserInfo } from './api';
+
 import{
-  initialCards,
   jobInput,
   nameInput,
   profileName,
@@ -14,47 +15,83 @@ import{
   popups,
   cardForm,
   config,
+  avatarEditForm,
+  avatarEditContainer,
+  avatarImage,
+  avatarEditInput,
+  avatarEditPopup,
+  avatarBtnSubmit,
+  renderLoading
 } from './utils.js';
 
 import{
-  cleanPopupSpanErrors,
   enableValidation,
   toggleButtonState
   //
 } from './validate.js';
 
 import{
-  handleCardFormSubmit,
   openCardPopup,
-  addCardPrepend,
+  addCardHandler
 } from './card.js';
 
 import{
   closePopup,
   openPopup,
 } from './modal.js';
-// Вынес присваивание для инпутов, чтобы проходила валидация
-// Функции открытия/закрытия попапа профиля
 
+// Profile
+export function getProfileServerInfo() {
+  getUserData()
+    .then(data => {
+      profileName.textContent = data.name;
+      profileJob.textContent = data.about;
+      avatarImage.src = data.avatar;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
-function openProfileEditPopup() {
-  jobInput.value = profileJob.textContent;
+avatarEditContainer.addEventListener('click', () => {
+  avatarEditInput.value = '';
+  openPopup(avatarEditPopup);
+  toggleButtonState([avatarEditInput], avatarBtnSubmit, config)
+});
+
+profileOpenButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
-  toggleButtonState([nameInput, jobInput], profileEditSubmitButton, config);
-  cleanPopupSpanErrors(profilePopup, [nameInput, jobInput], profileEditSubmitButton, config);
+  jobInput.value = profileJob.textContent;
   openPopup(profilePopup);
+  toggleButtonState([nameInput, jobInput], profileEditSubmitButton, config)
+});
+
+export function changeUserInfoHandler(evt) {
+  evt.preventDefault();
+  renderLoading(true, profileEditSubmitButton, 'Сохранить');
+  editUserInfo(nameInput.value, jobInput.value)
+  .then(() => {
+    getProfileServerInfo();
+  });
+  renderLoading(false, profileEditSubmitButton, 'Сохранить');
+  closePopup(profilePopup);
 }
 
-// Сохранение имени профиля
-function submitProfileInfo(event) {
-    event.preventDefault();
-    profileJob.textContent = jobInput.value
-    profileName.textContent = nameInput.value
-    closePopup(profilePopup)
+export function changeUserPhotoHandler(evt) {
+  evt.preventDefault();
+  renderLoading(true, avatarBtnSubmit, 'Сохранить');
+  const link = avatarEditInput.value;
+  editUserImage(link)
+  .then(() => {
+    getProfileServerInfo();
+  });
+  renderLoading(false, avatarBtnSubmit, 'Сохранить');
+  closePopup(avatarEditPopup);
 }
+// ПРОФИЛЬ
 
 // вызов функций
-initialCards.forEach(addCardPrepend);
+getProfileServerInfo();
 enableValidation(config);
 
 // Слушатели
@@ -67,10 +104,8 @@ popups.forEach(popup =>
     closePopup(popup)
   }
   }));
-
-profileOpenButton.addEventListener('click', openProfileEditPopup);
-cardAddButton.addEventListener('click', openCardPopup);
-profileFormElement.addEventListener('submit', submitProfileInfo);
-cardForm.addEventListener('submit', handleCardFormSubmit);
-
+profileFormElement.addEventListener('submit', changeUserInfoHandler);
+avatarEditForm.addEventListener('submit', changeUserPhotoHandler);
+cardForm.addEventListener('submit', addCardHandler)
+cardAddButton.addEventListener('click', openCardPopup)
 

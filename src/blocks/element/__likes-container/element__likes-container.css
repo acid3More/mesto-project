@@ -1,0 +1,9 @@
+.element__likes-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  gap: 3px;
+  margin-right: 20px;
+}

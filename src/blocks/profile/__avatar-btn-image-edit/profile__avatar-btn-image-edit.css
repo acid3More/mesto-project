@@ -1,0 +1,11 @@
+.profile__avatar-btn-image-edit{
+  display: none;
+  width: 26px;
+  height: 26px;
+  z-index: 1;
+  position: absolute;
+}
+
+.profile__avatar:hover .profile__avatar-btn-image-edit{
+  display: block;
+}
