@@ -48,7 +48,7 @@ export function createCard (item, userId) {
         .then((card) => {
           target.classList.remove('element__button_active');
           target.closest('.element').querySelector('.element__likes-count').textContent = card.likes.length;
-          if(likes.length <= 0){
+          if(card.likes.length <= 0){
             cardElement.querySelector('.element__likes-count').textContent = '';
           }
         })
