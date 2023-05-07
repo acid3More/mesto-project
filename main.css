@@ -16,7 +16,7 @@
 .elements{margin:0 auto;max-width:880px}@media screen and (max-width:1279px){.elements{width:calc(100% - 200px)}}@media screen and (max-width:1023px){.elements{width:calc(100% - 100px)}}
 .elements__list{display:grid;gap:20px 17px;grid-template-columns:repeat(3,282px);justify-content:center;list-style:none;margin:47.25px auto 0;max-width:880px;padding:0}@media screen and (max-width:1023px){.elements__list{grid-template-columns:repeat(2,282px)}}@media screen and (max-width:767px){.elements__list{grid-template-columns:repeat(1,282px);margin-top:36px}}
 .element{background-color:#fff;border-radius:10px 10px 10px 10px;display:flex;flex-direction:column;max-width:282px;position:relative}
-.element__image{border-radius:10px 10px 0 0;cursor:pointer;height:282px;overflow:hidden;transition:.4s;width:282px}.element__image:hover{opacity:.85}
+.element__image{border-radius:10px 10px 0 0;cursor:pointer;height:282px;-o-object-fit:cover;object-fit:cover;overflow:hidden;transition:.4s;width:282px}.element__image:hover{opacity:.85}
 .element__name{font-size:24px;font-weight:900;line-height:29px;margin:25px 0 31px;max-width:200px;overflow:hidden;padding:0 0 0 21px;text-overflow:ellipsis;white-space:nowrap}
 .element__text{display:flex;justify-content:space-between}
 .element__button{background-color:#fff;background-image:url(87ed371465c7a6a1cd01.svg);background-position:50%;background-repeat:no-repeat;border:0;cursor:pointer;height:19px;transition:.5s;width:22px}.element__button:hover{opacity:.5}
