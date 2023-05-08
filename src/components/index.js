@@ -80,8 +80,9 @@ export function changeUserInfoHandler(evt) {
   evt.preventDefault();
   renderLoading(true, profileEditSubmitButton, 'Сохранить');
   editUserInfo(nameInput.value, jobInput.value)
-  .then(() => {
-    getProfileServerInfo();
+  .then((data) => {
+    profileName.textContent = data.name;
+    profileJob.textContent = data.about
     closePopup(profilePopup);
   })
   .catch((err) => {
@@ -97,8 +98,8 @@ export function changeUserPhotoHandler(evt) {
   renderLoading(true, avatarBtnSubmit, 'Сохранить');
   const link = avatarEditInput.value;
   editUserImage(link)
-  .then(() => {
-    getProfileServerInfo();
+  .then((data) => {
+    avatarImage.src = data.avatar;
     closePopup(avatarEditPopup);
   })
   .catch((err) => {
